@@ -1,0 +1,12 @@
+# Arduino CLI sketch project file for Uno Q
+default_profile: default
+
+profiles:
+  default:
+    fqbn: arduino:zephyr:unoq  # Specifies the Uno Q Zephyr-based core
+    platforms:
+      - platform: arduino:zephyr
+    libraries:
+      - name: Arduino_RouterBridge  # Required for Python-to-MCU communication
+      # Add any additional libraries for the AD8232 or signal processing here
+      # - name: AD8232_Library (1.0.0)
