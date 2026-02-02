@@ -1,0 +1,23 @@
+name: PulseEdge Cardiac Gateway
+description: "Real-time ECG analysis and AFib detection using Edge AI."
+version: 1.0.0
+author: "[Your Name]"
+# The emoji you select here will appear as your App's icon in the App Lab
+icon: "❤️"
+
+# Bricks are modular blocks that simplify AI and Web deployment
+bricks:
+  # This brick handles the deployment of your .eim model file
+  - arduino:classification:
+      variables:
+        # Provide the full path to your .eim file on the Uno Q filesystem
+        EI_CLASSIFICATION_MODEL: "/home/arduino/ArduinoApps/PulseEdge/model.eim"
+  
+  # Optional: Adds a web-based dashboard to view your heart rate remotely
+  - arduino:web_ui: {}
+
+# Defines how your Python script connects to the STM32 hardware
+connectivity:
+  - type: serial
+    mcu_port: Serial1
+    mpu_dev: /dev/ttyHS1
