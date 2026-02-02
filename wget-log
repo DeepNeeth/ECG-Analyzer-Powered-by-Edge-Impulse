@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# 1. Define your Edge Impulse model download URL 
+# (You get this from the Deployment tab in Edge Impulse Studio)
+MODEL_URL="PASTE_YOUR_DIRECT_DOWNLOAD_URL_HERE"
+
+echo "Starting download of heart monitor AI model..."
+
+# 2. Use wget with 'quiet' mode to prevent wget-log from appearing
+# -O model.eim renames the downloaded file immediately
+wget -q -O model.eim "$MODEL_URL"
+
+# 3. Give the model execution permissions so the Python script can run it
+chmod +x model.eim
+
+echo "Success! model.eim is ready for real-time processing."
